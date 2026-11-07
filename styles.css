@@ -57,7 +57,7 @@ html {
 
 body {
   background-color: var(--retro-bg-parchment);
-  background-image: 
+  background-image:
     linear-gradient(rgba(246, 242, 233, 0.2), rgba(246, 242, 233, 0.4)),
     url('parchment_bg.jpg');
   background-size: 1000px 1000px;
@@ -314,8 +314,16 @@ body {
   line-height: 1;
 }
 
-.sparkle-1 { top: -10px; right: 20px; }
-.sparkle-2 { bottom: -10px; left: 10px; font-size: 1.2rem; }
+.sparkle-1 {
+  top: -10px;
+  right: 20px;
+}
+
+.sparkle-2 {
+  bottom: -10px;
+  left: 10px;
+  font-size: 1.2rem;
+}
 
 .hero-script-title {
   font-family: var(--font-script);
@@ -654,8 +662,8 @@ body {
 
 .timeline-milestones-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
   text-align: center;
 }
 
@@ -775,6 +783,82 @@ body {
   font-family: var(--font-heading);
   font-size: 0.95rem;
   color: var(--retro-ink);
+}
+
+/* Motion Graphic Video Showcase Styling - Side-by-side in one frame length */
+.motion-video-card {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 36px;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid var(--retro-border);
+  border-radius: var(--radius-card);
+  padding: 32px;
+  margin-bottom: 36px;
+  box-shadow: var(--shadow-retro-sm);
+  transition: var(--transition-smooth);
+}
+
+.motion-video-card.reverse-frame {
+  grid-template-columns: 0.85fr 1.15fr;
+}
+
+.motion-video-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--retro-line);
+  box-shadow: var(--shadow-retro-md);
+}
+
+.motion-video-frame-container {
+  width: 100%;
+  position: relative;
+  border-radius: var(--radius-frame);
+  overflow: hidden;
+  border: 2px solid var(--retro-line);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.14);
+  background: #000000;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  height: 0;
+  margin-bottom: 0;
+}
+
+.motion-video-frame-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.motion-video-content-grid {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.motion-video-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 12px;
+  border-bottom: 1px dashed var(--retro-border-delicate);
+  padding-bottom: 12px;
+  margin-bottom: 12px;
+}
+
+.motion-badge-pill {
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: #ffffff;
+  background: var(--retro-accent-terra);
+  padding: 4px 14px;
+  border-radius: var(--radius-pill);
+  text-transform: uppercase;
 }
 
 /* Double Image Grid for 3D Renders (Textured vs Wireframe) */
@@ -938,6 +1022,216 @@ body {
 }
 
 /* ==========================================================================
+   BREAKTHROUGH CAMPAIGNS (PAGES 34-38 IN PDF)
+   ========================================================================== */
+.breakthrough-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+}
+
+.breakthrough-card {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid var(--retro-border);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  box-shadow: var(--shadow-retro-sm);
+  transition: var(--transition-smooth);
+  display: flex;
+  flex-direction: column;
+}
+
+.breakthrough-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--retro-line);
+  box-shadow: var(--shadow-retro-md);
+}
+
+.breakthrough-img-box {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #1a1a1a;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+  border-bottom: 2px solid var(--retro-line);
+}
+
+.breakthrough-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.breakthrough-img-box:hover .breakthrough-img {
+  transform: scale(1.05);
+}
+
+.breakthrough-info {
+  padding: 28px 30px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.breakthrough-tag {
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--retro-accent-terra);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.breakthrough-title {
+  font-family: var(--font-heading);
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--retro-ink);
+  letter-spacing: 1.5px;
+  margin-bottom: 12px;
+}
+
+.breakthrough-desc {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: var(--retro-text-muted);
+}
+
+/* ==========================================================================
+   WALLPAPERS GALLERY IN HOBBIES (PAGE 42 IN PDF)
+   ========================================================================== */
+.wallpaper-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.wallpaper-card {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid var(--retro-border);
+  border-radius: var(--radius-frame);
+  overflow: hidden;
+  box-shadow: var(--shadow-retro-sm);
+  transition: var(--transition-smooth);
+}
+
+.wallpaper-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-retro-md);
+  border-color: var(--retro-line);
+}
+
+.wallpaper-img-box {
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  overflow: hidden;
+  background: #111;
+  cursor: pointer;
+}
+
+.wallpaper-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.wallpaper-img-box:hover .wallpaper-img {
+  transform: scale(1.05);
+}
+
+.wallpaper-caption {
+  padding: 16px;
+  text-align: center;
+}
+
+.wallpaper-title {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--retro-ink);
+}
+
+/* ==========================================================================
+   LINKS SECTION (PAGE 43 IN PDF)
+   ========================================================================== */
+.links-retro-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.links-retro-card {
+  background: rgba(255, 255, 255, 0.9);
+  border: 2px solid var(--retro-line);
+  border-radius: var(--radius-card);
+  padding: 36px 28px;
+  text-align: center;
+  box-shadow: var(--shadow-retro-sm);
+  transition: var(--transition-smooth);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.links-retro-card::after {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  border: 1px dashed var(--retro-border-gold);
+  border-radius: 14px;
+  pointer-events: none;
+}
+
+.links-retro-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-retro-md);
+  background: #ffffff;
+}
+
+.links-retro-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--retro-bg-parchment);
+  border: 1.5px solid var(--retro-line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+  font-size: 1.5rem;
+  color: var(--retro-ink);
+}
+
+.links-retro-platform {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--retro-ink);
+  margin-bottom: 8px;
+}
+
+.links-retro-sub {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-style: italic;
+  color: var(--retro-text-muted);
+  margin-bottom: 20px;
+}
+
+.links-retro-btn {
+  margin-top: auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* ==========================================================================
    CONTACT INFORMATION & THANK YOU (PAGE 39 IN PDF)
    ========================================================================== */
 .thank-you-banner {
@@ -1063,19 +1357,63 @@ body {
 
 /* Responsive */
 @media (max-width: 992px) {
-  .hero-script-title { font-size: 4.8rem; }
-  .hero-serif-title { font-size: 2.8rem; }
-  .overview-grid { grid-template-columns: repeat(2, 1fr); }
-  .about-grid-retro { grid-template-columns: 1fr; text-align: center; }
-  .vision-mission-grid, .edu-arch-grid, .art-showcase-card, .thank-you-banner { grid-template-columns: 1fr; }
-  .timeline-milestones-grid { grid-template-columns: 1fr; gap: 16px; }
-  .skills-circular-grid { grid-template-columns: repeat(2, 1fr); }
-  .poetry-grid { grid-template-columns: 1fr; }
+  .hero-script-title {
+    font-size: 4.8rem;
+  }
+
+  .hero-serif-title {
+    font-size: 2.8rem;
+  }
+
+  .overview-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .about-grid-retro {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .vision-mission-grid,
+  .edu-arch-grid,
+  .art-showcase-card,
+  .motion-video-card,
+  .thank-you-banner,
+  .breakthrough-grid,
+  .links-retro-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .timeline-milestones-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .skills-circular-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .poetry-grid,
+  .wallpaper-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 600px) {
-  .hero-script-title { font-size: 3.5rem; }
-  .hero-serif-title { font-size: 2rem; letter-spacing: 2px; }
-  .overview-grid { grid-template-columns: 1fr; }
-  .skills-circular-grid { grid-template-columns: 1fr; }
+  .hero-script-title {
+    font-size: 3.5rem;
+  }
+
+  .hero-serif-title {
+    font-size: 2rem;
+    letter-spacing: 2px;
+  }
+
+  .overview-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .skills-circular-grid {
+    grid-template-columns: 1fr;
+  }
 }
